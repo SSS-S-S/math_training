@@ -1,0 +1,30 @@
+main {
+    display: flex;flex-direction: column;align-items: center;
+}
+
+main a {
+    color: var(--odd-level);background-color: var(--even-level);
+    text-align: center;line-height: 40px;
+    width: 500px;height: 40px;
+    border: 0;margin-bottom: 25px;
+    font-size: 17px;text-decoration: none;
+}
+
+main a:hover {
+    box-sizing: border-box;
+    border: 4.5px var(--even-level) solid;line-height: 31px;
+    color:var(--even-level);
+    background-color: var(--odd-level);
+}
+
+@media (max-width: 1200px) {
+    main a {
+        width: 400px;
+    }
+}
+
+@media (max-width: 500px) {
+    main a {
+        width: 300px;
+    }
+}

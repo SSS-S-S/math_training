@@ -1,0 +1,135 @@
+main {
+    display: flex;align-items: center; margin: 30px;
+}
+
+.front, .back, .end {
+    display: flex;flex-direction: column;align-items:center;
+}
+
+.front > .setting {
+    width: 500px;
+    display: flex;gap:20px
+}
+
+.front > .setting * {
+    border: 0;flex: 1;height: 30px;
+    font-size: 14px;
+    color:var(--odd-level);background-color: var(--even-level);
+}
+
+.front h1 {
+    margin: 0;
+}
+
+.front > button, .front > a {
+    color:var(--odd-level);background-color: var(--even-level);
+    width: 500px;height: 35px;
+    border: 0;margin-top: 25px;
+    font-size: 16px;
+}
+
+.front > a {
+    line-height: 35px; text-align: center;
+}
+
+.front > button:hover, .front > a:hover {
+    box-sizing: border-box;
+    border: 4.5px var(--even-level) solid;
+    color:var(--even-level);background-color: var(--odd-level);
+}
+
+.front > a:hover {
+    line-height: 26px; text-align: center;
+}
+
+.back .qus_con {
+    font-size: 60px;
+}
+
+.back h1 {
+    margin: 0;
+}
+
+.back .qus_con_opt {
+    width: 300px; height: 300px;margin-top: 30px;
+    display: grid;grid-template-columns: 1fr 1fr;grid-template-rows: 1fr 1fr;gap: 10px;
+}
+
+.back .qus_con_opt > * {
+    border: 0;
+    font-size: 35px;
+    color:var(--odd-level);background-color:var(--even-level);
+}
+
+.back .qus_con_opt > *:hover {
+    border: 4.5px var(--even-level) solid;
+    color:var(--even-level);background-color:var(--odd-level);
+}
+
+.back .qus_timeup_cont{
+    margin-top: 30px;border: 0;width: 250px;height: 40px;font-size: 16px;
+    color:var(--odd-level);background-color:var(--even-level);display: none;
+}
+
+.back .qus_timeup_cont:hover {
+    color:var(--even-level);background-color:var(--odd-level);
+}
+
+.back .qus_timeup_cont:hover {
+    box-sizing: border-box;
+    border: 3.5px var(--even-level) solid;
+    background-color: var(--hover);
+}
+
+.back, .end {
+    display: none
+}
+
+.end {
+    width: 500px;
+}
+
+.end hr {
+    width: 500px;height: 2px;border: 0;
+    background-color: var(--even-level);color: var(--even-level);
+}
+
+.end > div {
+    display: flex; width: 500px;
+}
+
+.end > div > :nth-child(2) {
+    flex: 1;
+}
+
+@media (max-width: 1200px) {
+    .front > .setting {
+        width: 400px;
+    }
+    .front > a, .front > button {
+        width: 400px
+    }
+}
+
+@media (max-width: 500px) {
+    .front > .setting {
+        width: 350px;
+        gap: 15px
+    }
+    .front > a, .front > button {
+        width: 350px
+    }
+}
+
+@media (max-width: 400px) {
+    .front > .setting {
+        width: 300px;
+        gap: 15px
+    }
+    .front > a, .front > button {
+        width: 300px
+    }
+    .back .qus_con_opt {
+        width: 250px; height: 250px;
+    }
+}
