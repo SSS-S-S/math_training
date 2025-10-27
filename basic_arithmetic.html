@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <title>數學訓練器 | 基礎運算訓練</title>
+    <meta name="description" content="一款練習數學計算的互動式工具，此頁面訓練使用者基本的加法、減法、乘法運算速度">
+</head>
+<body>
+    <header>
+        <a href="index.html">數學訓練器</a>
+    </header>
+    <main>
+        <div id="front" class="front">
+            <h1>基礎運算訓練</h1>
+            <div>題目會出現除法以外的雙項四則運算，請回答與其相等的數值。</div>
+            <a href="index.html">回主頁</a>
+            <h2>運算選擇</h2>
+            <div class="setting">
+                <button data-type="0" data-value="0">加法</button>
+                <button data-type="0" data-value="1">減法</button>
+                <button data-type="0" data-value="2">乘法</button>
+            </div>
+            <h2>最大數字設置</h2>
+            <div class="setting">
+                <button data-type="1" data-value="10">10</button>
+                <button data-type="1" data-value="50">50</button>
+                <button data-type="1" data-value="100">100</button>
+                <button data-type="1" data-value="1000">1000</button>
+            </div>
+            <h2>時間設置</h2>
+            <div class="setting">
+                <button data-type="2" data-value="2">2秒</button>
+                <button data-type="2" data-value="5">5秒</button>
+                <button data-type="2" data-value="10">10秒</button>
+                <button data-type="2" data-value="15">15秒</button>
+            </div>
+            <h2>次數設置</h2>
+            <div class="setting">
+                <button data-type="3" data-value="10">10次</button>
+                <button data-type="3" data-value="25">25次</button>
+                <button data-type="3" data-value="50">50次</button>
+                <button data-type="3" data-value="100">100次</button>
+            </div>
+            <button id="start">開始</button>
+        </div>
+        <div id="back" class="back">
+            <h1>第<span id="qus_num"></span>題</h1>
+            <div id="qus_con" class="qus_con"></div>
+            <div id="timer">剩餘時間：0.000 秒</div>
+            <div id="qus_con_opt" class="qus_con_opt">
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+            </div>
+            <button id="qus_timeup_cont" class="qus_timeup_cont">繼續</button>
+        </div>
+        <div id="end" class="end">
+            <h1>遊玩結果</h1>
+            <hr>
+            <div>
+                <span>總題數：</span>
+                <span></span>
+                <span id="total-qus"></span>
+            </div>
+            <hr>
+            <div>
+                <span>答對題數：</span>
+                <span></span>
+                <span id="total-cor"></span>
+            </div>
+            <hr>
+            <div>
+                <span>答對率：</span>
+                <span></span>
+                <span id="rate-cor"></span>
+            </div>
+            <hr>
+            <div>
+                <span>花費時間：</span>
+                <span></span>
+                <span id="total-time"></span>
+            </div>
+            <hr>
+            <div>
+                <span>平均花費時間：</span>
+                <span></span>
+                <span id="aver-time"></span>
+            </div>
+            
+            <hr>
+        </div>
+    </main>
+    <footer>
+        <a href="about.html">關於我</a> | <a href="https://github.com/SSS-S-S/math_training">我的github</a>
+        <div>&copy; 2025 Math Training Project. All rights reserved.</div>
+    </footer>
+    <script src="js/basic_arithmetic.js" type="module"></script>
+</body>
+</html>
