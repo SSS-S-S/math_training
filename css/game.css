@@ -1,0 +1,125 @@
+.front, .back, .end {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.back, .end {
+    display: none
+}
+
+.front > .setting {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.front > .setting * {
+    border: 0;
+    flex: 1;
+    height: 30px;
+    font-size: 14px;
+    color: var(--odd-level);
+    background-color: var(--even-level);
+}
+
+.front > button, .front > a {
+    width: 100%;
+    height: 35px;
+    border: 0;
+    margin-top: 25px;
+    font-size: 16px;
+    color: var(--odd-level);
+    background-color: var(--even-level);
+}
+
+.front > a {
+    line-height: 35px;
+}
+
+.front > button:hover, .front > a:hover {
+    box-sizing: border-box;
+    border: 4.5px var(--even-level) solid;
+    color: var(--even-level);
+    background-color: var(--odd-level);
+}
+
+.front > a:hover {
+    line-height: 26px;
+}
+
+.back .qus_con {
+    font-size: 60px;
+}
+
+.back h1 {
+    margin: 0;
+}
+
+.back .qus_con_opt {
+    width: 300px;
+    height: 300px;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+}
+
+.back .qus_con_opt > * {
+    border: 0;
+    font-size: 32px;
+    color: var(--odd-level);
+    background-color: var(--even-level);
+}
+
+.back .qus_con_opt > *:hover {
+    border: 4.5px var(--even-level) solid;
+    color: var(--even-level);
+    background-color: var(--odd-level);
+}
+
+.back .qus_timeup_cont{
+    margin-top: 30px;
+    border: 0;
+    width: 250px;
+    height: 40px;
+    font-size: 16px;
+    color: var(--odd-level);
+    background-color: var(--even-level);display: none;
+}
+
+.back .qus_timeup_cont:hover {
+    color: var(--even-level);
+    background-color: var(--odd-level);
+}
+
+.back .qus_timeup_cont:hover {
+    box-sizing: border-box;
+    border: 3.5px var(--even-level) solid;
+    background-color: var(--hover);
+}
+
+.end hr {
+    width: 100%;
+    height: 2px;
+    border: 0;
+    background-color: var(--even-level);
+    color: var(--even-level);
+}
+
+.end > div {
+    display: flex; 
+    width: 100%;
+}
+
+.end > div > :nth-child(2) {
+    flex: 1;
+}
+
+@media (max-width: 500px) {
+    .front > .setting {
+        gap: 15px
+    }
+}

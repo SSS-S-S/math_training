@@ -1,0 +1,32 @@
+main {
+    flex-direction: column;
+}
+
+main a {
+    color: var(--odd-level);
+    background-color: var(--even-level);
+    text-align: center;
+    border: 0;
+    line-height: 40px;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+main a:hover {
+    box-sizing: border-box;
+    border: 4.5px var(--even-level) solid;line-height: 31px;
+    color:var(--even-level);
+    background-color: var(--odd-level);
+}
+
+main > div {
+    margin-bottom: 30px;
+}
+
+main .games {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 40px);
+    gap: 25px;
+}
