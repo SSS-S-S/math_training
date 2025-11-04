@@ -4,24 +4,27 @@ import {
     getRandomInt,
     toggleBtn,
     startMsCountdown,
-    changeDisplay
+    changeDisplay,
+    generateOptions,
 } from '/js/utils.js';
 
 const algorithm = [false, false, false];
 let numSize = null, time = null, times = null;
 let lastBtn = { numSize: null, time: null, times: null };
 
+const settingPage = document.getElementById("setting_page");
 const setQus = document.querySelectorAll("button[data-type]");
-const front = document.getElementById("front");
-const back = document.getElementById("back");
+const start = document.getElementById("start");
+
+const trainingPage = document.getElementById("training_page");
 const qusNum = document.getElementById("qus_num");
 const qusCon = document.getElementById("qus_con");
 const timerDisplay = document.getElementById("timer");
 const qusTimeupCont = document.getElementById("qus_timeup_cont");
 const qusConOpt = document.getElementById("qus_con_opt");
 const qusConOptChildren = document.querySelectorAll("#qus_con_opt *");
-const start = document.getElementById("start");
-const end = document.getElementById("end");
+
+const resultPage = document.getElementById("result_page");
 const totalQus = document.getElementById("total-qus");
 const totalCor = document.getElementById("total-cor");
 const rateCor = document.getElementById("rate-cor");
@@ -67,22 +70,6 @@ function updateSingleSelect(key, source, value) {
 
 function testStart() {
     function generateQuestion() {
-        function generateOptions(num1, num2, sym, ans) {
-            const question = `${num1} ${sym} ${num2}`;
-            const choices = new Set([ans]);
-
-            while (choices.size < 4) {
-                const delta = getRandomInt(1, 15);
-                const sign = Math.random() < 0.5 ? -1 : 1;
-                let fakeAns = ans + delta * sign;
-                fakeAns = Math.max(0, fakeAns);
-                choices.add(fakeAns);
-            }
-
-            const shuffled = Array.from(choices).sort(() => Math.random() - 0.5);
-            return { question, options: shuffled };
-        }
-
         const questions = [];
         const activeAlgos = algorithm
             .map((v, i) => (v ? i : null))
@@ -94,21 +81,23 @@ function testStart() {
             let random1, random2, ans;
 
             if (randomSymbol === "+") {
-                random1 = getRandomInt(1, numSize);
-                random2 = getRandomInt(1, numSize);
+                random1 = getRandomInt(-numSize, numSize);
+                random2 = getRandomInt(-numSize, numSize);
                 ans = random1 + random2;
             } else if (randomSymbol === "-") {
-                random1 = getRandomInt(1, numSize);
-                random2 = getRandomInt(1, random1);
+                random1 = getRandomInt(-numSize, numSize);
+                random2 = getRandomInt(-numSize, random1);
                 ans = random1 - random2;
             } else {
-                random1 = getRandomInt(1, numSize);
-                random2 = getRandomInt(1, numSize);
+                random1 = getRandomInt(-numSize, numSize);
+                random2 = getRandomInt(-numSize, numSize);
                 ans = random1 * random2;
             }
-            const gr = generateOptions(random1, random2, randomSymbol, ans);
+            
+            const question = `${random1} ${randomSymbol} ${random2}`;
+            const gr = generateOptions(ans);
 
-            questions.push({ question: gr.question, options: gr.options, ans });
+            questions.push({ question, options: gr, ans });
         }
         return questions
     }
@@ -118,7 +107,7 @@ function testStart() {
         return;
     }
 
-    changeDisplay([front, "none"], [back, "flex"], [end, "none"]);
+    changeDisplay([settingPage, "none"], [trainingPage, "flex"], [resultPage, "none"]);
 
     questions = generateQuestion();
 
@@ -187,7 +176,7 @@ function nextQuestion() {
 
 function endTest() {
     if (timerId) clearInterval(timerId);
-    changeDisplay([back, "none"], [end, "flex"]);
+    changeDisplay([trainingPage, "none"], [resultPage, "flex"]);
     totalQus.textContent = times;
     totalCor.textContent = currentCorrect;
     const rate = times > 0 ? (currentCorrect / times * 100) : 0;

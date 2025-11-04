@@ -11,9 +11,8 @@ let numSize = null, time = null, times = null;
 let lastBtn = { numSize: null, time: null, times: null };
 
 const setQus = document.querySelectorAll("button[data-type]");
-const front = document.getElementById("front");
-
-const back = document.getElementById("back");
+const settingPage = document.getElementById("setting_page");
+const trainingPage = document.getElementById("training_page");
 const qusNum = document.getElementById("qus_num");
 const qusCon = document.getElementById("qus_con");
 const timerDisplay = document.getElementById("timer");
@@ -21,8 +20,7 @@ const qusTimeupCont = document.getElementById("qus_timeup_cont");
 const qusConOpt = document.getElementById("qus_con_opt");
 const qusConOptChildren = document.querySelectorAll("#qus_con_opt *");
 const start = document.getElementById("start");
-
-const end = document.getElementById("end")
+const resultPage = document.getElementById("result_page");
 const totalQus = document.getElementById("total-qus");
 const totalCor = document.getElementById("total-cor");
 const rateCor = document.getElementById("rate-cor");
@@ -53,7 +51,7 @@ function testStart() {
         alert("請先完成所有設定！");
         return;
     }
-    changeDisplay([front, "none"],[back, "flex"], [end, "none"]);
+    changeDisplay([settingPage, "none"],[trainingPage, "flex"], [resultPage, "none"]);
     questions = [];
     for (let i = 0; i < times; i++) {
         const correctExp = getRandomInt(0, numSize);
@@ -130,7 +128,7 @@ function nextQuestion() {
 
 function endTest() {
     if (timerId) clearInterval(timerId);
-    changeDisplay([back, "none"],[end, "flex"]);
+    changeDisplay([trainingPage, "none"],[resultPage, "flex"]);
     totalQus.textContent = times;
     totalCor.textContent = currentCorrect;
     const rate = currentCorrect / times * 100;
