@@ -27,6 +27,7 @@ const totalCor = document.getElementById("total-cor");
 const rateCor = document.getElementById("rate-cor");
 const totalTime = document.getElementById("total-time");
 const averTime = document.getElementById("aver-time");
+const restart = document.getElementById("restart");
 
 const symbols = ["+", "-", "×"];
 let questions = [];
@@ -117,7 +118,7 @@ function testStart() {
         return;
     }
 
-    changeDisplay([front, "none"], [back, "flex"]);
+    changeDisplay([front, "none"], [back, "flex"], [end, "none"]);
 
     questions = generateQuestion();
 
@@ -199,6 +200,7 @@ function endTest() {
 
 function init() {
     start.addEventListener("click", testStart);
+    restart.addEventListener("click", testStart);
     setQus.forEach((e) => {
         const dataType = Number(e.getAttribute("data-type"));
         const dataValue = Number(e.getAttribute("data-value"));

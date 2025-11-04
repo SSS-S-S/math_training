@@ -23,6 +23,7 @@ const totalCor = document.getElementById("total-cor");
 const rateCor = document.getElementById("rate-cor");
 const totalTime = document.getElementById("total-time");
 const averTime = document.getElementById("aver-time");
+const restart = document.getElementById("restart");
 
 let questions = [];
 let currentIndex = 0;
@@ -47,7 +48,7 @@ function testStart() {
         alert("請先完成所有設定！");
         return;
     }
-    changeDisplay([front, "none"],[back, "flex"]);
+    changeDisplay([front, "none"],[back, "flex"], [end, "none"]);
     questions = [];
     for (let i = 0; i < times; i++) {
         const baseNumber = getRandomInt(0, numSize);
@@ -140,6 +141,7 @@ function endTest() {
 
 function init() {
     start.addEventListener("click", testStart);
+    restart.addEventListener("click", testStart);
     
     setQus.forEach((e) => {
         const dataType = Number(e.getAttribute("data-type"));
