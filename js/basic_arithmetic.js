@@ -81,16 +81,16 @@ function testStart() {
             let random1, random2, ans;
 
             if (randomSymbol === "+") {
-                random1 = getRandomInt(-numSize, numSize);
-                random2 = getRandomInt(-numSize, numSize);
+                random1 = getRandomInt(0, numSize);
+                random2 = getRandomInt(0, numSize);
                 ans = random1 + random2;
             } else if (randomSymbol === "-") {
-                random1 = getRandomInt(-numSize, numSize);
-                random2 = getRandomInt(-numSize, random1);
+                random1 = getRandomInt(0, numSize);
+                random2 = getRandomInt(0, random1);
                 ans = random1 - random2;
             } else {
-                random1 = getRandomInt(-numSize, numSize);
-                random2 = getRandomInt(-numSize, numSize);
+                random1 = getRandomInt(0, numSize);
+                random2 = getRandomInt(0, numSize);
                 ans = random1 * random2;
             }
             
